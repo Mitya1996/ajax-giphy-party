@@ -5,8 +5,11 @@ const api_key = 'BXOztdBn3GDpzq1xuPcimuRNtN6SHQ4s';
 $('form').on('submit', function(e){
     e.preventDefault();
     let searchTerm = $(this).children()[0].value;
-    console.log(searchTerm)
     getGif(searchTerm);
+})
+
+$('#clearGifs').on('click', function(){
+    $('#gifList').html('');
 })
 
 async function getGif(searchTerm) {
@@ -26,3 +29,4 @@ function appendGif(response){
     let randomGifUrl = gifList[randomNum].images.original.url;
     $('#gifList').append($('<img>', {src: randomGifUrl}));
 }
+
